@@ -192,7 +192,7 @@ function cloneDiv(e){
     /*close_btn.style.top = "-20px"
     close_btn.style.right = "-20px"*/
     clone.appendChild(close_btn)
-    card_div.appendChild(clone)
+    card_div.insertBefore(clone,card_div.children[0])
     
 }
 /*image button */
@@ -218,13 +218,39 @@ root.appendChild(card_div);
 /*footer*/
 let footer = document.createElement("footer");
 
-footer.innerText = "🖤 Credits : Polaroid TV Traitor Fall Guy Radio";
-footer.style.position = "relative";
+/*footer.innerText = "🖤 Credits : Polaroid TV Traitor Fall Guy Radio";*/
+
+footer.style.display = "flex";
 footer.style.paddingTop = "15%";
-footer.style.bottom = "1em";
+footer.style.marginBottom ="3%"
 footer.style.width = "100%";
-footer.style.textAlign = "center";
+footer.style.justifyContent = "center";
+let footer_ele =["🖤 Credits :","Polaroid","TV","Traitor","Fall Guy","Radio"]
+let a;
+footer_ele.forEach((items,index)=>{
+    if(index == 0){
+     a = document.createElement("p");
+    }
+    else{
+     a = document.createElement("a");
+     a.href = "#"
+     a.style.textDecoration = "none"
+     a.style.color = "black"
+     a.style.marginLeft = "10px"
+     a.addEventListener('mouseover',(e)=>{
+         e.target.style.cssText += "border-bottom:2px solid black;"
+     })
+     a.addEventListener('mouseout',(e)=>{
+         e.target.style.cssText += "border-bottom: 0px;"
+     })
+    }
+    
+    a.innerText = items
+   
+    footer.appendChild(a)
+})
 root.append(footer);
+
 
 
 
