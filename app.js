@@ -3,17 +3,18 @@
 
 const header = document.createElement("div");
 root.appendChild(header);
-root.style.margin = "0px 100px"
+root.style.padding = "20px"
 root.style.display = 'flex'
+root.style.fontFamily = `'Montserrat'`
 root.style.flexFlow = "column wrap"
 root.style.alignItems = "center"
 
 const title = document.createElement("h1");
 title.innerText += "BLING!"
-title.style.paddingTop = "1em";
-title.style.color  ="black";
+title.style.paddingTop = "2em";
+title.style.color  ="#2d2d2d";
 title.style.textShadow = "2px 2px #f39c12";
-title.style.fontWeight = "bolder";
+title.style.fontWeight = "900";
 title.style.fontSize = "2em";
 title.style.textAlign = "center";
 header.appendChild(title);
@@ -26,7 +27,7 @@ main.style.width = "100%"
 main.style.display = "flex";
 main.style.flexDirection = "row";
 main.style.flexWrap = "wrap";
-main.style.justifyContent = "space-between";
+main.style.justifyContent = "space-around";
 main.style.marginTop = "100px"
 
 const left_main = document.createElement("div");
@@ -35,12 +36,6 @@ left_main.style.display = "flex";
 left_main.style.flexDirection = "column"
 left_main.style.flexWrap = "wrap";
 
-/* text,select,radio div */
-const text_select_radio = document.createElement("div");
-text_select_radio.style.display = "flex";
-text_select_radio.style.justifyContent = "space-between";
-text_select_radio.style.flexWrap = "wrap";
-text_select_radio.style.marginTop = "30px"
 
 /*Sizzle your life */
 const left_main_first = document.createElement("h3");
@@ -81,6 +76,7 @@ left_main_fourth.style.backgroundColor = "black";
 left_main_fourth.style.color = "white";
 left_main_fourth.style.borderRadius ="10px"
 left_main_fourth.style.padding = "15px"
+left_main_fourth.style.cursor = "pointer"
 
 
 color_list.forEach((item)=>{
@@ -102,10 +98,12 @@ const left_main_fifth = document.createElement("div");
 left_main_fifth.style.cssText = "margin : 20px 0px 10px 0px;"
 left_main_fifth.style.backgroundColor = "black";
 left_main_fifth.style.color = "white";
-left_main_fifth.style.width = '8em';
+left_main_fifth.style.width = '9em';
 left_main_fifth.style.paddingTop = "14px"
 left_main_fifth.style.paddingLeft = '10px';
 left_main_fifth.style.borderRadius ="10px"
+left_main_fifth.style.cursor = "pointer"
+
 /*radio button(blob) */
 
 const radio_one = document.createElement("input");
@@ -150,7 +148,7 @@ left_main_fifth.appendChild(radio_two_label);
 
 const right_main = document.createElement("div");
 right_main.style.minHeight = "300px";
-right_main.style.minWidth = "300px";
+right_main.style.Width = "300px";
 right_main.style.display = "flex";
 right_main.style.flexDirection = "column";
 right_main.style.alignItems = "center";
@@ -158,11 +156,21 @@ right_main.style.justifyContent = "space-between";
 right_main.style.backgroundColor = "snow";
 main.appendChild(right_main);
 
+/* text,select,radio div */
+const text_select_radio = document.createElement("div");
+text_select_radio.style.display = "flex";
+text_select_radio.style.justifyContent = "space-between";
+text_select_radio.style.flexWrap = "wrap";
+text_select_radio.style.marginTop = "30px"
+
 
 /* paragraph above the image*/
-const right_main_first = document.createElement("p");
-right_main_first.style.fontSize = "50px";
-right_main_first.style.fontWeight = "bold"
+const right_main_first = document.createElement("h2");
+right_main_first.style.fontSize = "4rem";
+right_main_first.style.wordBreak = "break-all"
+right_main_first.style.textAlign = "center"
+right_main_first.style.fontWeight = "900"
+right_main_first.style.width = "300px";
 right_main_first.style.marginBottom = "100px"
 right_main.appendChild(right_main_first);
 
@@ -179,7 +187,7 @@ function showPicture(e) {
     {
         let toWhite = document.querySelectorAll(".button");
         toWhite.forEach((ele) => {
-            ele.style.backgroundColor = "white";
+            ele.style.backgroundColor = "inherit"
             ele.style.color = "black";
         })
         image.src = e.target.value; 
@@ -199,14 +207,23 @@ let cam_image_div = document.createElement("div");
 
 let cam_image = document.createElement("button");
 cam_image.style.backgroundImage = `url('assets/images/camera.png')`
-cam_image.style.padding ="15px 15px";
+cam_image.style.padding ="30px 30px";
 cam_image.style.boxShadow = "5px 3px 3px black";
 cam_image.style.backgroundSize = "50%"
 cam_image.style.backgroundPosition = "center";
 cam_image.style.backgroundRepeat = "no-repeat" ;
 cam_image.style.borderRadius = "10px"
 cam_image.style.marginTop = "10px"
+cam_image.style.cursor = "pointer"
+cam_image.addEventListener('mousedown',changeBackgroundColor);
+cam_image.addEventListener('mouseup',removeBackgroundColor);
 
+function changeBackgroundColor (e){
+    cam_image.style.backgroundColor = "white"
+}
+function removeBackgroundColor (e){
+    cam_image.style.backgroundColor = document.body.style.backgroundColor;
+}
 cam_image.addEventListener('click',cloneDiv);
 function cloneDiv(e){
     const clone = right_main.cloneNode(true);
@@ -250,6 +267,7 @@ button.style.backgroundClip = "inherit";
 button.style.borderRadius = "10px";
 button.style.padding ="10px";
 button.style.boxShadow = "5px 3px 3px black";
+button.style.cursor = "pointer";
 
 button.addEventListener('click',showPicture);
 btn_div.appendChild(button)
@@ -265,7 +283,7 @@ root.appendChild(card_div);
 
 const footer = document.createElement("div");
 footer.style.textAlign = "center";
-footer.style.fontSize = "14px";
+footer.style.fontSize = "18px";
 footer.style.fontWeight = "bold";
 footer.style.paddingTop = "50px";
 footer.style.verticalAlign = "bottom";
@@ -290,7 +308,7 @@ const creditList = ["🖤 Credits:","Polaroid","TV","Traitor","Fall Guy","Radio"
     a.style.margin = "14px 16px";
     a.style.textDecoration = "none";
     a.style.color = "black";
-    if (index) a.href = "https://google.com";
+    if (index) a.href = "#";
   
     li.append(a);
     ul.append(li);
