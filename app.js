@@ -89,6 +89,8 @@ color_list.forEach((item)=>{
 
 left_main_fourth.addEventListener('change',changeColor)
 function changeColor(e){
+  cam_image.style.backgroundColor = e.target.value;
+
     right_main.style.backgroundColor = e.target.value;
     document.body.style.backgroundColor = e.target.value;
 }
@@ -215,6 +217,7 @@ cam_image.style.backgroundRepeat = "no-repeat" ;
 cam_image.style.borderRadius = "10px"
 cam_image.style.marginTop = "10px"
 cam_image.style.cursor = "pointer"
+cam_image.style.backgroundColor = "inherit"
 cam_image.addEventListener('mousedown',changeBackgroundColor);
 cam_image.addEventListener('mouseup',removeBackgroundColor);
 
@@ -226,9 +229,11 @@ function removeBackgroundColor (e){
 }
 cam_image.addEventListener('click',cloneDiv);
 function cloneDiv(e){
+  
     const clone = right_main.cloneNode(true);
     clone.style.border = "1px solid black";
     clone.style.boxShadow = "5px 3px 3px black";
+    clone.style.borderRadius = "10px"
     
     clone.style.margin = "50px"
     clone.style.position = "relative";
@@ -239,6 +244,7 @@ function cloneDiv(e){
     close_btn.style.height = "50px";
     close_btn.style.top = "-15px"
     close_btn.style.right = "-15px"
+    close_btn.style.cursor = "pointer"
     close_btn.addEventListener('click',()=>clone.remove())
     clone.appendChild(close_btn)
     card_div.insertBefore(clone,card_div.children[0])
@@ -263,7 +269,7 @@ button.style.minWidth = "50px";
 button.style.fontSize = "16px";
 button.style.marginTop = "20px";
 button.style.marginRight = "16px";
-button.style.backgroundClip = "inherit";
+button.style.backgroundColor = "inherit";
 button.style.borderRadius = "10px";
 button.style.padding ="10px";
 button.style.boxShadow = "5px 3px 3px black";
