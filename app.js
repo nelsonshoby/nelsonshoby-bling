@@ -1,4 +1,3 @@
-
 /*header*/
 
 const header = document.createElement("div");
@@ -87,6 +86,7 @@ color_list.forEach((item)=>{
     
 })
 
+
 left_main_fourth.addEventListener('change',changeColor)
 function changeColor(e){
   cam_image.style.backgroundColor = e.target.value;
@@ -118,10 +118,9 @@ function changeBackGroundImage(e){
     right_main.style.backgroundImage = `url('assets/images/blob.png')`
     right_main.style.backgroundSize = "100%"
     right_main.style.backgroundRepeat = "no-repeat"  
-    right_main.style.backgroundPosition = "0px 50px"
-
-    
+    right_main.style.backgroundPosition = "0px 50px"    
 }
+
 /*radio button(blob) label*/
 
 const radio_one_label = document.createElement("label");
